@@ -1,14 +1,9 @@
 import { Request, Response } from 'express';
+import { login, signup } from '../../controllers/auth';
 const route = require('express').Router();
 
-route.post('/signup', async (req: Request, res: Response) => {
-    res.send("this is signup route");
-});
-route.post('/login', async (req: Request, res: Response) => {
-    res.send("this is login route");
-});
-route.post('/logout', async (req: Request, res: Response) => {
-    res.send("this is logout route");
-});
+route.post('/signup', signup);
+route.post('/login', login);
+route.post('/logout', );
   
 module.exports = route;

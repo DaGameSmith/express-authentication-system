@@ -19,6 +19,8 @@ db.sequelize.sync()
     console.log("Failed to sync db: " + err.message);
   });
 
+
+
 // Body parsing Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
