@@ -1,4 +1,6 @@
 import { Request, Response } from 'express';
+import passport from 'passport';
+import { getAllUsers, getUserById } from '../../controllers/user';
 const route = require('express').Router();
 
 /* Logout user */
@@ -15,15 +17,8 @@ const route = require('express').Router();
 //     }
 // });
 
-route.post('/user', async (req: Request, res: Response) => {
-    res.send("this is create user route");
-});
-route.get('/users', async (req: Request, res: Response) => {
-    res.send("this is get all users route");
-});
-route.get('/user/:id', async (req: Request, res: Response) => {
-    res.send("this is get one user route");
-});
+route.get('/users', passport.authenticate('jwt', {session: false}), getAllUsers);
+route.get('/user/:id', passport.authenticate('jwt', {session: false}), getUserById);
   
   
 module.exports = route;

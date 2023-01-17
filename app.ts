@@ -1,14 +1,20 @@
 import express, { Application, Request, Response } from 'express';
+import * as dotenv from 'dotenv';
+
+
 
 const cors = require('cors');
 
 const app: Application = express();
+
+dotenv.config();
 const PORT: number = 3001;
 
 // const corsOptions = {
 //     origin: "http://localhost:8081"
 // };  
 // app.use(cors(corsOptions));
+require("./passport");
 
 const db = require("./models");
 db.sequelize.sync()
