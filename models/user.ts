@@ -1,4 +1,3 @@
-'use strict';
 import { Interface } from 'readline';
 import {
   Model
